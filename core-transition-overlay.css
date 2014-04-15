@@ -5,19 +5,45 @@ The complete set of contributors may be found at http://polymer.github.io/CONTRI
 Code distributed by Google as part of the polymer project is also
 subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt */
 
-:host(.core-overlay) {
-	position: fixed;
-	outline: none;
-	display: none;
-	transition: opacity 0.001s;
+:host(.core-transition) {
+  display: none;
+  transition: transform 0.2s ease-in-out, opacity 0.2s ease-in;
+  -webkit-transition: -webkit-transform 0.2s ease-in-out, opacity 0.2s ease-in;
 }
 
 :host(.core-revealed) {
-	display: block;
-	opacity: 0;
+  display: block;
+  opacity: 0;
 }
 
 :host(.core-revealed.core-opened) {
-	display: block;
-	opacity: 1;
+  display: block;
+  opacity: 1;
+  transform: none;
+  -webkit-transform: none;
+}
+
+:host(.core-transition-center) {
+  transform: scale(0.5);
+  -webkit-transform: scale(0.5);
+}
+
+:host(.core-transition-top) {
+  transform: translateY(-200%);
+  -webkit-transform: translateY(-200%);
+}
+
+:host(.core-transition-bottom) {
+  transform: translateY(200%);
+  -webkit-transform: translateY(200%);
+}
+
+:host(.core-transition-left) {
+  transform: translateX(-200%);
+  -webkit-transform: translateX(-200%);
+}
+
+:host(.core-transition-right) {
+  transform: translateX(200%);
+  -webkit-transform: translateX(200%);
 }

@@ -9,7 +9,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
 <link rel="import" href="core-transition.html">
 
-<polymer-element name="core-transition-css" extends="core-transition">
+<polymer-element name="core-transition-css" extends="core-transition" attributes="transitionType">
 <template>
   <link no-shim rel="stylesheet" href="core-transition-overlay.css">
 </template>
@@ -17,6 +17,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
   Polymer('core-transition-css', {
     
+    baseClass: 'core-transition',
     revealedClass: 'core-revealed',
     openedClass: 'core-opened',
     closedClass: 'core-closed',
@@ -45,6 +46,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         this.installScopeStyle(this.transitionStyle, 'transition',
             node.shadowRoot);
         node._hasTransitionStyle = true;
+        node.classList.add(this.baseClass);
+        if (this.transitionType) {
+          node.classList.add(this.baseClass + '-' + this.transitionType);
+        }
       }
     },
 
@@ -77,4 +82,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 </script>
 </polymer-element>
 
-<core-transition-css id="overlay-transition"></core-transition-css>
+<core-transition-css id="core-transition-fade"></core-transition-css>
+<core-transition-css id="core-transition-center" transitionType="center"></core-transition-css>
+<core-transition-css id="core-transition-top" transitionType="top"></core-transition-css>
+<core-transition-css id="core-transition-bottom" transitionType="bottom"></core-transition-css>
+<core-transition-css id="core-transition-left" transitionType="left"></core-transition-css>
+<core-transition-css id="core-transition-right" transitionType="right"></core-transition-css>
