@@ -114,7 +114,7 @@ Fired when the animation finishes.
        * @param {Node} node The animated node
        */
       complete: function(node) {
-        this.fire('core-transitionend', null, node);
+        this.fire('core-transitionend', this, node);
       },
 
       /**
